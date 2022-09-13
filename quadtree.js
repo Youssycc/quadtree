@@ -70,19 +70,19 @@ class Quadtree {
     this.divided = true
     //top left rectangle
     let nwRect = new Rectangle(this.boundary.x-this.boundary.w/2,
-      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,random(palette))
+      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
     this.northwest = new Quadtree(nwRect,this.capacity)
     //top right rectangle
     let neRect = new Rectangle(this.boundary.x+this.boundary.w/2,
-      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,random(palette))
+      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
     this.northeast = new Quadtree(neRect,this.capacity)
     //bottom left rectangle
     let swRect = new Rectangle(this.boundary.x-this.boundary.w/2,
-      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,random(palette))
+      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
     this.southwest = new Quadtree(swRect,this.capacity)
     //bottom right rectangle
     let seRect = new Rectangle(this.boundary.x+this.boundary.w/2,
-      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,random(palette))
+      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
     this.southeast = new Quadtree(seRect,this.capacity)
   }
 
