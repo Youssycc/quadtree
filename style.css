@@ -1,11 +1,11 @@
 body {
   width:700px !important;
   height:700px !important;
+  position:relative;
+  overscroll-behavior: contain;
+
 }
 
 html, body {
   overflow-x: hidden;
-}
-body {
-  position: relative;
 }
