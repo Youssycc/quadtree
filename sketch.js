@@ -6,29 +6,26 @@ function setup() {
   background(51)
   let rect = new Rectangle(width/2,height/2,width/2,height/2,"#F2F2F2")
   qt = new Quadtree(rect,4)
-
-  //adding points
-  // for (let i = 0; i<200;i++) {
-  //   let p = new Point(random(width),random(height))
-  //   qt.insert(p)
-  // }
-  // qt.show()
-  console.log(qt)
 }
 
+//draw the quadtree each frame
 function draw() {
 background("#F2F2F2")
-// if(mouseIsPressed) {
-//   qt.insert(new Point(mouseX,mouseY))
-// }
 qt.show()
 }
 
+//insert points in quadtree at mouse position when dragging
 function mouseDragged() {
   qt.insert(new Point(mouseX,mouseY))
-
 }
 
+function keyPressed() {
+  //save canvas as .png when any key is pressed
+  saveCanvas("mondrian","png")
+}
+
+//function that picks randomly from the Mondrian palette colors
+//probabilities are assigned to each color
 function randomColor() {
   let r = random()
   let c
