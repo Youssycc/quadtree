@@ -2,7 +2,7 @@ let paletteMondrian = ["#003B6E","#EBBF4B","#DB442B","#F2F2F2", "#BCC3CB", "#000
 let qt
 
 function setup() {
-  createCanvas(700,700)
+  createCanvas(500,500)
   background(51)
   let rect = new Rectangle(width/2,height/2,width/2,height/2,"#F2F2F2")
   qt = new Quadtree(rect,4)
