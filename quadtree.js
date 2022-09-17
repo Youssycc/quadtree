@@ -5,9 +5,9 @@ class Point {
   }
 
   show() {
-    fill(255)
+    fill("#22F005")
     noStroke()
-    ellipse(this.x,this.y,4,4)
+    ellipse(this.x,this.y,6,6)
   }
 }
 
@@ -28,7 +28,7 @@ class Rectangle {
   }
 
   show() {
-    stroke(0)
+    stroke(strokeColor)
     strokeWeight(3)
     fill(this.color)
     rectMode(RADIUS)
@@ -70,19 +70,19 @@ class Quadtree {
     this.divided = true
     //top left rectangle
     let nwRect = new Rectangle(this.boundary.x-this.boundary.w/2,
-      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
+      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,"#000000")
     this.northwest = new Quadtree(nwRect,this.capacity)
     //top right rectangle
     let neRect = new Rectangle(this.boundary.x+this.boundary.w/2,
-      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
+      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,"#000000")
     this.northeast = new Quadtree(neRect,this.capacity)
     //bottom left rectangle
     let swRect = new Rectangle(this.boundary.x-this.boundary.w/2,
-      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
+      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,"#000000")
     this.southwest = new Quadtree(swRect,this.capacity)
     //bottom right rectangle
     let seRect = new Rectangle(this.boundary.x+this.boundary.w/2,
-      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
+      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,"#000000")
     this.southeast = new Quadtree(seRect,this.capacity)
   }
 
@@ -90,15 +90,16 @@ class Quadtree {
     //showing this quadtree boundary
     this.boundary.show()
     //showing the points in the quadtree
-    // for(let point of this.points) {
-    //   point.show()
-    // }
+
     //showing children
     if (this.divided) {
       this.northeast.show()
       this.northwest.show()
       this.southeast.show()
       this.southwest.show()
+    }
+    for(let point of this.points) {
+      point.show()
     }
   }
 
