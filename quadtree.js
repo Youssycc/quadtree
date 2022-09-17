@@ -28,7 +28,7 @@ class Rectangle {
   }
 
   show() {
-    stroke(strokeColor)
+    stroke(0)
     strokeWeight(3)
     fill(this.color)
     rectMode(RADIUS)
@@ -70,37 +70,37 @@ class Quadtree {
     this.divided = true
     //top left rectangle
     let nwRect = new Rectangle(this.boundary.x-this.boundary.w/2,
-      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,"#000000")
+      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
     this.northwest = new Quadtree(nwRect,this.capacity)
     //top right rectangle
     let neRect = new Rectangle(this.boundary.x+this.boundary.w/2,
-      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,"#000000")
+      this.boundary.y-this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
     this.northeast = new Quadtree(neRect,this.capacity)
     //bottom left rectangle
     let swRect = new Rectangle(this.boundary.x-this.boundary.w/2,
-      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,"#000000")
+      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
     this.southwest = new Quadtree(swRect,this.capacity)
     //bottom right rectangle
     let seRect = new Rectangle(this.boundary.x+this.boundary.w/2,
-      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,"#000000")
+      this.boundary.y+this.boundary.h/2,this.boundary.w/2,this.boundary.h/2,randomColor())
     this.southeast = new Quadtree(seRect,this.capacity)
   }
 
   show() {
     //showing this quadtree boundary
     this.boundary.show()
-    //showing the points in the quadtree
 
-    //showing children
+    //showing children nodes
     if (this.divided) {
       this.northeast.show()
       this.northwest.show()
       this.southeast.show()
       this.southwest.show()
     }
-    for(let point of this.points) {
-      point.show()
-    }
+    //showing the points in the quadtree
+    // for(let point of this.points) {
+    //   point.show()
+    // }
   }
 
 
